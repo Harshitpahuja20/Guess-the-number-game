@@ -8,11 +8,9 @@ let heading2 = document.querySelector("#heading2");
 let x = Math.floor(Math.random() * 100);
 count = 0;
 
-checkbtn.addEventListener("click", (event) => {
-  
-  count += 1;
-
+checkbtn.addEventListener("click", () => {
   let ivalue = input.value;
+
   if (ivalue < 0) {
     heading1.innerHTML = "Invalid Input";
   }
@@ -30,6 +28,18 @@ checkbtn.addEventListener("click", (event) => {
     para.innerHTML = x;
     document.body.style.background = "maroon";
 
-    heading2.innerHTML = 100 - count;
+    heading2.innerHTML = 100 - count - 1;
+  }else{
+    count += 1;
   }
 });
+
+againbtn.addEventListener("click" , (e)=>{
+  e.preventDefault();
+  heading2.innerHTML = "00";
+  para.innerHTML = "?";
+  heading1.innerHTML = "Start Guessing...";
+  document.body.style.background = "rgb(69, 69, 69)";
+  count = 0
+  input.value = ""
+})
